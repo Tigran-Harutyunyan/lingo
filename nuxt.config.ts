@@ -20,9 +20,6 @@ export default defineNuxtConfig({
      */
     componentDir: './components/ui'
   },
-  alias: {
-    ".prisma/client/index-browser": "./node_modules/.prisma/client/index-browser.js"
-  },
   runtimeConfig: {
     public: {
       clerkPublishableKey: process.env.NUXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
