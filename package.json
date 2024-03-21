@@ -35,6 +35,7 @@
     "@types/stripe": "^8.0.417",
     "@vueuse/core": "^10.8.0",
     "@vueuse/nuxt": "^10.8.0",
+    "@vueuse/sound": "^2.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "drizzle-orm": "^0.29.5",
@@ -50,6 +51,7 @@
     "tailwindcss-animate": "^1.0.7",
     "vue-clerk": "^0.2.0",
     "vue-confetti": "^2.3.0",
+    "vue-confetti-explosion": "^1.0.2",
     "vue-sonner": "^1.0.3",
     "vue3-circle-progress": "^1.0.7",
     "zod": "^3.22.4"
