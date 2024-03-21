@@ -1,8 +1,4 @@
-<script setup lang="ts">
-import { ClerkLoaded } from "vue-clerk";
-</script>
+<script setup lang="ts"></script>
 <template>
-  <ClerkLoaded>
-    <slot></slot>
-  </ClerkLoaded>
+  <slot></slot>
 </template>
