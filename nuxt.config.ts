@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   plugins: [
     { src: '~/plugins/vue-confetti.js', mode: 'client' },
   ],
-  
+
   shadcn: {
     /**
      * Prefix for all the imported component
