@@ -9,6 +9,10 @@ import {
   ClerkLoaded,
 } from "vue-clerk";
 import { Button } from "@/components/ui/button";
+
+useHead({
+  title: "Lingo | Home",
+});
 </script>
 
 <template>

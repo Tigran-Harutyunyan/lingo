@@ -1,6 +1,15 @@
 <script setup lang="ts">
 import { useApi } from "@/composables/useApi";
 import ShopItems from "@/components/ShopItems.vue";
+
+definePageMeta({
+  middleware: ["auth"],
+});
+
+useHead({
+  title: "Lingo | Shop",
+});
+
 const { getUserProgress, getUserSubscriptions } = useApi();
 
 const [userProgress, userSubscription] = await Promise.all([

@@ -1,4 +1,12 @@
 <script setup lang="ts">
+definePageMeta({
+  middleware: ["auth"],
+});
+
+useHead({
+  title: "Lingo | Quests",
+});
+
 import { quests } from "@/constants";
 
 import { useApi } from "@/composables/useApi";

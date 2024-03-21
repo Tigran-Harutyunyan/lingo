@@ -41,6 +41,10 @@ export const useApi = () => {
         return $fetch<User[]>(`/api/refill-hearts`)
     }
 
+    const getCourses = () => {
+        return $fetch<User[]>(`/api/courses`)
+    }
+
     return {
         getUserProgress,
         getUnits,
@@ -49,6 +53,7 @@ export const useApi = () => {
         getCoursProgress,
         getLesson,
         getTopUsers,
-        refillHearts
+        refillHearts,
+        getCourses
     }
 }

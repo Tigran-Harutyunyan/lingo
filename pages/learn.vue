@@ -4,6 +4,14 @@ import Header from "@/components/main/learn/Header.vue";
 import { lessons, units as unitsSchema } from "@/db/schema";
 import { useApi } from "@/composables/useApi";
 
+definePageMeta({
+  middleware: ["auth"],
+});
+
+useHead({
+  title: "Lingo | Learn",
+});
+
 const {
   getUserProgress,
   getUnits,

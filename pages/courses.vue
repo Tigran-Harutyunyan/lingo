@@ -1,14 +1,21 @@
 <script setup lang="ts">
 import List from "@/components/courses/List.vue";
+import { useApi } from "@/composables/useApi";
 
-const coursesData = $fetch("/api/courses");
+const { getCourses, getUserProgress } = useApi();
 
-const userProgressData = $fetch(`/api/progress`);
+definePageMeta({
+  middleware: ["auth"],
+});
+
+useHead({
+  title: "Lingo | Courses",
+});
 
 const isLoading = ref(true);
 const [courses, userProgress] = await Promise.all([
-  coursesData,
-  userProgressData,
+  getCourses(),
+  getUserProgress(),
 ]);
 
 isLoading.value = false;

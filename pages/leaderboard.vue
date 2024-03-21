@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { useApi } from "@/composables/useApi";
 
+definePageMeta({
+  middleware: ["auth"],
+});
+
+useHead({
+  title: "Lingo | Leaderboard",
+});
+
 const { getUserProgress, getUserSubscriptions, getTopUsers } = useApi();
 
 const [userProgress, userSubscription, leaderboard] = await Promise.all([

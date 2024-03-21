@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import Quiz from "@/components/lesson/Quiz.vue";
-
 import { useApi } from "@/composables/useApi";
+
+definePageMeta({
+  middleware: ["auth"],
+});
+
+useHead({
+  title: "Lingo | Lesson",
+});
 
 const { getUserProgress, getUserSubscriptions, getLesson } = useApi();
 
