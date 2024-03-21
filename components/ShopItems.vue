@@ -38,14 +38,23 @@ const onRefillHearts = async () => {
   }
 };
 
-const onUpgrade = () => {
-  //   createStripeUrl()
-  //     .then((response) => {
-  //       if (response.data) {
-  //         window.location.href = response.data;
-  //       }
-  //     })
-  //     .catch(() => toast.error("Something went wrong"));
+const onUpgrade = async () => {
+  pending.value = true;
+  try {
+    const response = await $fetch("/api/stripe", {
+      method: "POST",
+    });
+
+    debugger;
+
+    if (response && typeof response === "object" && "url" in response) {
+      window.location.href = response.url as string;
+    }
+  } catch (error) {
+    toast.error("Something went wrong");
+  } finally {
+    pending.value = false;
+  }
 };
 </script>
 
@@ -78,7 +87,7 @@ const onUpgrade = () => {
           Unlimited hearts
         </p>
       </div>
-      <Button @click="onUpgrade" :disabled="pending">
+      <Button @click="onUpgrade()" :disabled="pending">
         {{ hasActiveSubscription ? "settings" : "upgrade" }}
       </Button>
     </div>
