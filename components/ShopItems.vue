@@ -40,12 +40,11 @@ const onRefillHearts = async () => {
 
 const onUpgrade = async () => {
   pending.value = true;
+
   try {
     const response = await $fetch("/api/stripe", {
       method: "POST",
     });
-
-    debugger;
 
     if (response && typeof response === "object" && "url" in response) {
       window.location.href = response.url as string;

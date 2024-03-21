@@ -37,7 +37,7 @@ export default defineEventHandler(async (event) => {
                 return_url: returnUrl,
             });
 
-            return { data: stripeSession.url };
+            return { url: stripeSession.url };
         }
 
         const stripeSession = await stripe.checkout.sessions.create({
