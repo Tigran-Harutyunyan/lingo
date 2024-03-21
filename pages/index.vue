@@ -5,7 +5,6 @@ import {
   SignUpButton,
   SignedIn,
   SignedOut,
-  ClerkLoading,
   ClerkLoaded,
 } from "vue-clerk";
 import { Button } from "@/components/ui/button";
@@ -32,32 +31,47 @@ useHead({
           Learn, practice, and master new languages with Lingo.
         </h1>
         <div class="flex flex-col items-center gap-y-3 max-w-[330px] w-full">
-          <ClerkLoading>
-            <Loader class="h-5 w-5 text-muted-foreground animate-spin" />
-          </ClerkLoading>
           <ClerkLoaded>
             <SignedOut>
               <SignUpButton
+                v-slot="{ handler }"
                 mode="modal"
                 afterSignInUrl="/learn"
                 afterSignUpUrl="/learn"
               >
-                <Button size="lg" variant="secondary" class="w-full">
+                <Button
+                  @click="handler"
+                  size="lg"
+                  variant="secondary"
+                  class="w-full"
+                >
                   Get Started
                 </Button>
               </SignUpButton>
               <SignInButton
+                v-slot="{ handler }"
                 mode="modal"
                 afterSignInUrl="/learn"
                 afterSignUpUrl="/learn"
               >
-                <Button size="lg" variant="primaryOutline" class="w-full">
+                <Button
+                  @click="handler"
+                  size="lg"
+                  variant="primaryOutline"
+                  class="w-full"
+                >
                   I already have an account
                 </Button>
               </SignInButton>
             </SignedOut>
-            <SignedIn>
-              <Button size="lg" variant="secondary" class="w-full" asChild>
+            <SignedIn v-slot="{ handler }">
+              <Button
+                @click="handler"
+                size="lg"
+                variant="secondary"
+                class="w-full"
+                asChild
+              >
                 <NuxtLink to="/learn"> Continue Learning </NuxtLink>
               </Button>
             </SignedIn>
